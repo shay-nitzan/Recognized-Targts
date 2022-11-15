@@ -1,0 +1,316 @@
+<CreateAccountWindow>:
+    name: "create"
+
+    namee: namee
+    email: email
+    phone_number: phone_number
+    password: id_num
+
+    FloatLayout:
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'background2.jpg'
+
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Create an Account"
+                #color: 0.3,0.7,0.6,1
+                #color: 0, 0, 0, 1
+                bold: True
+                size_hint: 0.8, 0.12
+                pos_hint: {"x":0.1, "top":0.975}
+                font_size: (root.width**2 + root.height**2) / 12.5**4
+
+            Label:
+                size_hint: 0.5,0.1
+                pos_hint: {"x":0, "top":0.81}
+                text: "Name: "
+                bold: True
+                #color: 0, 0, 0, 1
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.45, "top":0.81}
+                size_hint: 0.5, 0.1
+                id: namee
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                size_hint: 0.5,0.1
+                pos_hint: {"x":0, "top":0.81-0.13}
+                text: "Password: (id)"
+                bold: True
+                #color: 0, 0, 0, 1
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.45, "top":0.81-0.13}
+                size_hint: 0.5, 0.1
+                id: id_num
+                multiline: False
+                password: True
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+
+            Label:
+                size_hint: 0.5,0.1
+                pos_hint: {"x":0, "top":0.81-0.13*2}
+                text: "Email: "
+                bold: True
+                #color: 0, 0, 0, 1
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.45, "top":0.81-0.13*2}
+                size_hint: 0.5, 0.1
+                id: email
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 15**4
+
+
+            Label:
+                size_hint: 0.5,0.1
+                pos_hint: {"x":0, "top":0.81-0.13*3}
+                text: "Phone Number: "
+                bold: True
+                #color: 0, 0, 0, 1
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                pos_hint: {"x":0.45, "top":0.81-0.13*3}
+                size_hint: 0.5, 0.1
+                id: phone_number
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.14}
+            size_hint: 0.3, 0.1
+            text: "Sign Up"
+            bold: True
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+        Button:
+            pos_hint:{"x":0.15,"y":0.005}
+            size_hint: 0.7, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            text: "Already have an Account? Login"
+            bold: True
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+
+
+<LoginWindow>:
+    name: "login"
+
+    email: email
+    password: id_number
+
+    FloatLayout:
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'background1.jpg'
+
+        Label:
+            text:"Email: "
+            bold: True
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.08, "top":0.95}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: email
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: False
+            pos_hint: {"x": 0.47 , "top":0.92}
+            size_hint: 0.5, 0.12
+
+        Label:
+            text:"Password: (id)"
+            bold: True
+            font_size: (root.width**2 + root.height**2) / 13**4
+            pos_hint: {"x":0.08, "top":0.75}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: id_number
+            font_size: (root.width**2 + root.height**2) / 15**4
+            multiline: False
+            id_number: True
+            password: True
+            pos_hint: {"x": 0.47, "top":0.72}
+            size_hint: 0.5, 0.12
+
+        Button:
+            pos_hint:{"x":0.375,"y":0.18}
+            size_hint: 0.25, 0.1
+            font_size: (root.width**2 + root.height**2) / 14**4
+            text: "Login"
+            bold: True
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginBtn()
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.02}
+            size_hint: 0.6, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Don't have an Account? Create One"
+            bold: True
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createBtn()
+
+
+
+<MainWindow>:
+    #n: n
+    #email: email
+    #created:created
+    num_shoot1:num_shoot1
+    num_shoot2:num_shoot2
+    num_shoot3:num_shoot3
+
+    FloatLayout:
+
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'background3.jpg'
+
+        Button:
+            pos_hint:{"x":0.19,"y":0.55}
+            size_hint: 0.14, 0.18
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "target1"
+            bold: True
+            color: 0.3,0.6,0.7,1
+            on_release:
+                root.target1()
+
+        Button:
+            pos_hint:{"x":0.45,"y":0.55}
+            size_hint: 0.14, 0.18
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "target2"
+            bold: True
+            color: 0.8,0.3,0.3,1
+            on_release:
+                root.target2()
+
+        Button:
+            pos_hint:{"x":0.7,"y":0.55}
+            size_hint: 0.14, 0.18
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "target3"
+            bold: True
+            color: 0.2,0.7,0.4,1
+            on_release:
+                root.target3()
+
+        Button:
+            pos_hint:{"x":0.03,"y":0.23}
+            size_hint: 0.3, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Send me statistics"
+            #color: 0.3,0.6,0.7,1
+            bold: True
+            on_release:
+                root.send_me_statistics()
+
+        Button:
+            pos_hint:{"x":0.35,"y":0.23}
+            size_hint: 0.3, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "New target image"
+            bold: True
+            #color: 0.3,0.6,0.7,1
+            on_release:
+                root.new_clean_target()
+
+        Button:
+            pos_hint:{"x":0.67,"y":0.23}
+            size_hint: 0.3, 0.1
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Remove shooter"
+            bold: True
+            #color: 0.3,0.6,0.7,1
+            on_release:
+                root.remove_user()
+
+        Button:
+            pos_hint:{"x":0.3, "y": 0.02}
+            size_hint:0.4,0.13
+            font_size: (root.width**2 + root.height**2) / 15**3.75
+            text: "Log Out"
+            bold: True
+            on_release:
+                app.root.current = "login"
+                root.manager.transition.direction = "down"
+
+
+        Button:
+            pos_hint: {"x":0.19,"y":0.45}
+            size_hint: 0.06,0.07
+            text: "submit"
+            bold: True
+            #on_release:
+            #    root.update_bullets_number_target1()
+
+        TextInput:
+            pos_hint: {"x":0.27, "top":0.52}
+            size_hint: 0.06,0.065
+            id: num_shoot1
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4.2
+
+
+
+
+        Button:
+            pos_hint: {"x":0.45,"y":0.45}
+            size_hint: 0.06,0.07
+            text: "submit"
+            bold: True
+            #on_release:
+            #    root.update_bullets_number_target2()
+
+
+        TextInput:
+            pos_hint: {"x":0.53, "top":0.52}
+            size_hint: 0.06,0.065
+            id: num_shoot2
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4.2
+
+
+        Button:
+            pos_hint: {"x":0.7,"y":0.45}
+            size_hint: 0.06,0.07
+            text: "submit"
+            bold: True
+            #on_release:
+            #    root.update_bullets_number_target3()
+
+        TextInput:
+            pos_hint: {"x":0.78, "top":0.52}
+            size_hint: 0.06,0.065
+            id: num_shoot3
+            multiline: False
+            font_size: (root.width**2 + root.height**2) / 14**4.2
